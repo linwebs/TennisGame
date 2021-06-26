@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 55f937a4df9358c47a04216ad000e389
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: jf-openhuninn-1.1
+  fontNames:
+  - jf-openhuninn-1.1
+  fallbackFontReferences: []
+  customCharacters: "\u5C40\u6578\u73A9\u5BB6\u96FB\u81661234567890abcdefghijklmnopqrstuvxyz"
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
