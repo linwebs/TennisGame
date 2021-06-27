@@ -8,3 +8,6 @@
 
 ## 遊戲方式
 利用鍵盤上下左右鍵移動玩家，按下 W 鍵高手接球、S 鍵低手接球、空白鍵發球。
+
+## HackMD 筆記
+https://hackmd.io/@linwebs-ncyu/tennis-game

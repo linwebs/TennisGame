@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &279310045369687686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911349374427670170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 31.05, y: 69.32, z: 2.35}
+  m_Center: {x: -0.36, y: 10.07, z: -3.66}
 --- !u!1 &8619338778009079821
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8619338778009177583}
+  - component: {fileID: 590631411711265919}
   m_Layer: 0
   m_Name: Bip001
   m_TagString: Untagged
@@ -699,6 +713,19 @@ Transform:
   m_Father: {fileID: 8619338778009177163}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &590631411711265919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619338778009080271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8193235, y: 1.3662108, z: 1.8352742}
+  m_Center: {x: -0.069073446, y: 0.015121646, z: 0.45836902}
 --- !u!1 &8619338778009080273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,6 +1187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TennisRacket
       objectReference: {fileID: 0}
+    - target: {fileID: 3767201887369893866, guid: a9cb0c0e187ba47469a1a70d372842e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: tennis_racket
+      objectReference: {fileID: 0}
     - target: {fileID: 4543035281291169104, guid: a9cb0c0e187ba47469a1a70d372842e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -1232,6 +1264,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9cb0c0e187ba47469a1a70d372842e2, type: 3}
+--- !u!1 &5911349374427670170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3767201887369893866, guid: a9cb0c0e187ba47469a1a70d372842e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7372004219737354608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6431848641929772064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4543035281291169104, guid: a9cb0c0e187ba47469a1a70d372842e2,
