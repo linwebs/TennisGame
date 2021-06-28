@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class BallScript : MonoBehaviour {
 	//Ball
-	public float Power = 10;		//發射時的速度
-	public float Angle = 320;		//發射角度
-	private float Gravity = -10;	//重力加速度
-	private Vector3 MoveSpeed;		//初速度向量
+	public float Power = 10;  //發射時的速度
+	public float Angle = 320;  //發射角度
+	private float Gravity = -10; //重力加速度
+	private Vector3 MoveSpeed;  //初速度向量
 	private Vector3 GritySpeed = Vector3.zero; //重力的速度向量
-	private float dTime;			//已經過去的時間
+	private float dTime;   //已經過去的時間
 	private Vector3 currentAngle;
 	private int forwardangle;
 
@@ -20,6 +20,7 @@ public class BallScript : MonoBehaviour {
 	private float OutsideLineX2 = -5.5f;
 	private float OutsideLineZ1 = 12.0f;
 	private float OutsideLineZ2 = -12.0f;
+	private float OutsideLineY = -10.0f;
 
 	public GameObject GameScene;
 	public GameObject player1;
@@ -31,8 +32,8 @@ public class BallScript : MonoBehaviour {
 	public Text score2_2;
 	public Text score1_3;
 	public Text score2_3;
-	private int flag;		 // 0:玩家，1:電腦，持球的人
-	private int touchfloor;	 // 碰撞floor次數
+	private int flag;   // 0:玩家，1:電腦，持球的人
+	private int touchfloor;  // 碰撞floor次數
 	private int iscore1;
 	private int iscore2;
 
@@ -57,7 +58,7 @@ public class BallScript : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.P)) {
+		if (Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.P)) {
 			Debug.Log("讓球的到初始位置");
 			transform.position = new Vector3(1.0f, 1.0f, -9.8f);
 		}
@@ -70,6 +71,15 @@ public class BallScript : MonoBehaviour {
 			m_Rigidbody = GetComponent<Rigidbody>();
 			// 鎖住 RigidBody 不移動 Y 軸
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+		}
+
+		if (transform.position.y <= OutsideLineY) {
+			if (flag == 0) {
+				AddScore1();
+			} else if (flag == 1) {
+				AddScore2();
+			}
+			initial();
 		}
 	}
 
@@ -98,79 +108,32 @@ public class BallScript : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) {
 		//Debug.Log("" + collision.gameObject.tag);
+		//Debug.Log(flag.ToString());
+
 		if (collision.gameObject.tag == "tennis_racket") {
 			touchfloor = 0;
-			if (flag == 0) {
-				//Angle += 90;
-				flag = 1;
-			} else if (flag == 1) {
-				//Angle -= 90;
-				flag = 0;
-			}
+			flag = 0;
 			dTime = 0;
-			Debug.Log("Player Hit");
-			//GritySpeed = Vector3.zero;
 			RandomZ();
 			MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power;
 			currentAngle = Vector3.zero;
+			Debug.Log("player swing");
 		}
 
 		if (collision.gameObject.tag == "tennis_racket_computer") {
 			touchfloor = 0;
-			if (flag == 0) {
-				//Angle += 90;
-				flag = 1;
-			} else if (flag == 1) {
-				//Angle -= 90;
-				flag = 0;
-			}
+			flag = 1;
 			dTime = 0;
-			Debug.Log("Computer Hit");
-			//GritySpeed = Vector3.zero;
 			RandomZ();
-			MoveSpeed = Quaternion.Euler(new Vector3(45, 0, 0)) * Vector3.forward * Power * -1;
+			MoveSpeed = Quaternion.Euler(new Vector3(40, 0, 0)) * Vector3.back * Power;
 			currentAngle = Vector3.zero;
+			Debug.Log("computer swing");
 		}
-
-		/*
-		if (collision.gameObject.tag == "tennis_racket") {
-			touchfloor = 0;
-			if (flag == 0) {
-				Angle += 90;
-				flag = 1;
-			} else if (flag == 1) {
-				Angle -= 90;
-				flag = 0;
-			}
-			dTime = 0;
-			Debug.Log("AAA" + dTime);
-			//GritySpeed = Vector3.zero;
-			RandomZ();
-			MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power;
-			currentAngle = Vector3.zero;
-		}
-
-		if (collision.gameObject.tag == "tennis_racket_computer") {
-			touchfloor = 0;
-			if (flag == 0) {
-				Angle -= 90;
-				flag = 1;
-			} else if (flag == 1) {
-				Angle += 90;
-				flag = 0;
-			}
-			dTime = 0;
-			Debug.Log("AAA" + dTime);
-			//GritySpeed = Vector3.zero;
-			RandomZ();
-			MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power;
-			currentAngle = Vector3.zero;
-		}
-		*/
 
 		if (collision.gameObject.tag == "floor") {
 
 			touchfloor++;
+			//Debug.Log(touchfloor.ToString());
 			if (touchfloor == 1) {
 				//Boomtext.text = "floor 1";
 				// 判斷第一下是否界外，界外對手得分
@@ -194,7 +157,7 @@ public class BallScript : MonoBehaviour {
 
 		// Ball
 		// 通過一個公式計算出初速度向量
-		// Angle * Power
+		// Angle*Power
 		dTime = 0;
 		RandomZ();
 		MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power;
@@ -257,7 +220,7 @@ public class BallScript : MonoBehaviour {
 
 	private void Check_OutsideLine() {
 		if (transform.position.x > OutsideLineX1 || transform.position.x < OutsideLineX2
-			|| transform.position.z > OutsideLineZ1 || transform.position.z < OutsideLineZ2) {
+		 || transform.position.z > OutsideLineZ1 || transform.position.z < OutsideLineZ2) {
 			//Debug.Log("Check_OutsideLine");
 			if (flag == 0) {
 				AddScore2();

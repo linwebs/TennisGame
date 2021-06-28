@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneScript : MonoBehaviour {
 	public GameObject Menu;
+	public GameObject GameStatus;
 	public int game_state;
 
 	// 局數
@@ -23,5 +24,6 @@ public class GameSceneScript : MonoBehaviour {
 	public void MenuBtnClick() {
 		game_state = 0;
 		Menu.SetActive(true);
+		GameStatus.SetActive(false);
 	}
 }

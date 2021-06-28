@@ -7,14 +7,14 @@ public class ComputerScript : MonoBehaviour {
 	public GameObject ball;
 	public GameObject Player;
 	float move_speed = 10.0f;
-	bool swing_ball;			// 是否正在擊球
+	bool swing_ball;            // 是否正在擊球
 
-	Vector3 pos_o;				// 電腦目前的位置
-	Vector3 pos_n;				// 電腦計算後的新位置
-	Vector3 pos_ball;			// 球目前的位置
-	Vector3 pos_ball_last;		// 球之前的位置
+	Vector3 pos_o;              // 電腦目前的位置
+	Vector3 pos_n;              // 電腦計算後的新位置
+	Vector3 pos_ball;           // 球目前的位置
+	Vector3 pos_ball_last;      // 球之前的位置
 	Vector3 pos_player_swing;   // 玩家發球時的位置
-	Vector3 pos_player;			// 玩家目前的位置
+	Vector3 pos_player;         // 玩家目前的位置
 
 	void Start() {
 		anim = GetComponent<Animator>();
@@ -79,7 +79,7 @@ public class ComputerScript : MonoBehaviour {
 				transform.position = Vector3.MoveTowards(pos_o, pos_n, step);
 				anim.Play("running");
 			}
-		} else if(!swing_ball) {
+		} else if (!swing_ball) {
 			// 對方還沒發球
 
 			pos_n.x = pos_ball.x + 1.0f;

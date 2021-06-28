@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 	public Animator anim;
-	float speed;
+	public float speed = 3.0f;
 	bool swing_ball;
 
 	void Start() {
 		anim = this.GetComponent<Animator>();
 		anim.Play("stand");
-		speed = 3f;
 		swing_ball = false;
 	}
 
