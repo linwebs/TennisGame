@@ -2440,6 +2440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7478225697116208144, guid: 6fb37f825ee63264b9c2600bf1a52006,
+        type: 3}
+      propertyPath: m_TagString
+      value: tennis_racket
+      objectReference: {fileID: 0}
     - target: {fileID: 7839993120454274640, guid: 6fb37f825ee63264b9c2600bf1a52006,
         type: 3}
       propertyPath: m_TagString
@@ -2614,12 +2619,17 @@ PrefabInstance:
     - target: {fileID: 563752973517382760, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
       propertyPath: m_Radius
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 563752973517382760, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392527631307085099, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1392527631307085099, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
@@ -2630,13 +2640,19 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 5068256860584019450, guid: 7deebafb76f6f304887636780914a6bc,
+      objectReference: {fileID: 5068256860584019450, guid: 28e1dce89b10eee408c65710a6e9046f,
         type: 3}
     - target: {fileID: 1392527631307085099, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: -554506159104368933, guid: 28e1dce89b10eee408c65710a6e9046f,
+        type: 3}
+    - target: {fileID: 1392527631307085099, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 5068256860584019450, guid: 28e1dce89b10eee408c65710a6e9046f,
         type: 3}
     - target: {fileID: 2759833947392409461, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
@@ -2693,6 +2709,21 @@ PrefabInstance:
       propertyPath: score2_3
       value: 
       objectReference: {fileID: 293768286}
+    - target: {fileID: 2759833947392409461, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
+        type: 3}
+      propertyPath: GameScene
+      value: 
+      objectReference: {fileID: 2015914259}
+    - target: {fileID: 2759833947392409461, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
+        type: 3}
+      propertyPath: GameStatus
+      value: 
+      objectReference: {fileID: 1831802989}
+    - target: {fileID: 2759833947392409461, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
+        type: 3}
+      propertyPath: GameStatusText
+      value: 
+      objectReference: {fileID: 1414286816}
     - target: {fileID: 3492886146481011996, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
       propertyPath: m_RootOrder
@@ -2701,17 +2732,17 @@ PrefabInstance:
     - target: {fileID: 3492886146481011996, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.06
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3492886146481011996, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.06
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3492886146481011996, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.06
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3492886146481011996, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
@@ -2768,11 +2799,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TennisBall
       objectReference: {fileID: 0}
+    - target: {fileID: 6783138338860695540, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8928930267903053331, guid: 70d67f293f87c2b48aa1a0cf313fc5a2,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -3062870841995052231, guid: 7deebafb76f6f304887636780914a6bc,
+      objectReference: {fileID: -3062870841995052231, guid: 28e1dce89b10eee408c65710a6e9046f,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d67f293f87c2b48aa1a0cf313fc5a2, type: 3}

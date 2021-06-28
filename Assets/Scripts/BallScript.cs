@@ -101,6 +101,41 @@ public class BallScript : MonoBehaviour {
 		if (collision.gameObject.tag == "tennis_racket") {
 			touchfloor = 0;
 			if (flag == 0) {
+				//Angle += 90;
+				flag = 1;
+			} else if (flag == 1) {
+				//Angle -= 90;
+				flag = 0;
+			}
+			dTime = 0;
+			Debug.Log("Player Hit");
+			//GritySpeed = Vector3.zero;
+			RandomZ();
+			MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power;
+			currentAngle = Vector3.zero;
+		}
+
+		if (collision.gameObject.tag == "tennis_racket_computer") {
+			touchfloor = 0;
+			if (flag == 0) {
+				//Angle += 90;
+				flag = 1;
+			} else if (flag == 1) {
+				//Angle -= 90;
+				flag = 0;
+			}
+			dTime = 0;
+			Debug.Log("Computer Hit");
+			//GritySpeed = Vector3.zero;
+			RandomZ();
+			MoveSpeed = Quaternion.Euler(new Vector3(45, 0, 0)) * Vector3.forward * Power * -1;
+			currentAngle = Vector3.zero;
+		}
+
+		/*
+		if (collision.gameObject.tag == "tennis_racket") {
+			touchfloor = 0;
+			if (flag == 0) {
 				Angle += 90;
 				flag = 1;
 			} else if (flag == 1) {
@@ -118,19 +153,20 @@ public class BallScript : MonoBehaviour {
 		if (collision.gameObject.tag == "tennis_racket_computer") {
 			touchfloor = 0;
 			if (flag == 0) {
-				Angle += 90;
+				Angle -= 90;
 				flag = 1;
 			} else if (flag == 1) {
-				Angle -= 90;
+				Angle += 90;
 				flag = 0;
 			}
 			dTime = 0;
 			Debug.Log("AAA" + dTime);
 			//GritySpeed = Vector3.zero;
 			RandomZ();
-			MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power * -1;
+			MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power;
 			currentAngle = Vector3.zero;
 		}
+		*/
 
 		if (collision.gameObject.tag == "floor") {
 
@@ -158,7 +194,7 @@ public class BallScript : MonoBehaviour {
 
 		// Ball
 		// 通過一個公式計算出初速度向量
-		// Angle*Power
+		// Angle * Power
 		dTime = 0;
 		RandomZ();
 		MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power;
