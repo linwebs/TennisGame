@@ -15,6 +15,7 @@ public class MenuSceneScript : MonoBehaviour {
 	void Update() {
 
 	}
+
 	public void ContinueBtnClick() {
 		int state = GameScene.GetComponent<GameSceneScript>().game_state;
 
@@ -23,6 +24,7 @@ public class MenuSceneScript : MonoBehaviour {
 			GameScene.GetComponent<GameSceneScript>().game_state = 1;
 		}
 	}
+
 	public void MainPageBtnClick() {
 		SceneManager.LoadSceneAsync(0);
 	}

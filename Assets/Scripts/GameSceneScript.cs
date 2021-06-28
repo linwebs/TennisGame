@@ -19,6 +19,7 @@ public class GameSceneScript : MonoBehaviour {
 	void Update() {
 
 	}
+
 	public void MenuBtnClick() {
 		game_state = 0;
 		Menu.SetActive(true);

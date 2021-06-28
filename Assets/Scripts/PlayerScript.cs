@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour {
 	public Animator anim;
 	float speed;
 	bool swing_ball;
+
 	void Start() {
 		anim = this.GetComponent<Animator>();
 		anim.Play("stand");
@@ -47,12 +48,19 @@ public class PlayerScript : MonoBehaviour {
 			anim.Play("stand");
 		}
 
-		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.Space)) {
+		if (Input.GetKey(KeyCode.DownArrow)) {
 			anim.Play("swing");
 			swing_ball = true;
 			StartCoroutine(swing_ball_timer());
 		}
+
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space)) {
+			anim.Play("serve");
+			swing_ball = true;
+			StartCoroutine(swing_ball_timer());
+		}
 	}
+
 	IEnumerator swing_ball_timer() {
 		yield return new WaitForSeconds(1.0f);
 		swing_ball = false;

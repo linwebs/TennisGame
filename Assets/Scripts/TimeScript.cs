@@ -3,58 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class TimeScript : MonoBehaviour {
-	public Text Gametimer;
+	public Text GameTime;
+	public Text BoardTime;
 	public GameObject GameScene;
-	//public Text Boardtimer;
 
-	private float timer_f;
-	private int timer_i;
+	float timer_init;
+	int game_state;
 
-	private int mins;
-	private int secs;
+	int hou;
+	int min;
+	int sec;
 
-	private string mins0;
-	private string secs0;
+	string hou_s;
+	string min_s;
+	string sec_s;
 
 	void Start() {
-		mins = 0;
-		secs = 0;
-
-		mins0 = "0";
-		secs0 = "0";
+		timer_init = Time.time;
 	}
 
 	// Update is called once per frame
 	void Update() {
-		int state = GameScene.GetComponent<GameSceneScript>().game_state;
+		game_state = GameScene.GetComponent<GameSceneScript>().game_state;
 
-		if (state == 1) {
-			timer_f = Time.time;
-			timer_i = Mathf.FloorToInt(timer_f);
-			if (timer_i >= 60) {
-				mins = timer_i / 60;
-				secs = timer_i % 60;
+		if (game_state == 1) {
 
-				if (mins >= 10)
-					mins0 = "";
-				else if (mins < 10)
-					mins0 = "0";
+			// 遊戲開始到現在的時間
+			int time_diff = Mathf.FloorToInt(Time.time - timer_init);
 
-				if (secs >= 10)
-					secs0 = "";
-				else if (secs < 10)
-					secs0 = "0";
+			// 計算時間
+			if (time_diff >= 3600) {
+				hou = time_diff / 3600;
+				min = (time_diff - hou * 3600) / 60;
+				sec = time_diff - hou * 3600 - min * 60;
+			} else if (time_diff >= 60) {
+				hou = 0;
+				min = time_diff / 60;
+				sec = time_diff - min * 60;
 			} else {
-				secs = timer_i;
-				if (secs >= 10)
-					secs0 = "";
-				else if (secs < 10)
-					secs0 = "0";
+				hou = 0;
+				min = 0;
+				sec = time_diff;
 			}
 
-			Gametimer.text = "00:" + mins0 + mins.ToString() + ":" + secs0 + secs.ToString();
+			// 轉換小時為文字
+			if (hou >= 10) {
+				hou_s = hou.ToString();
+			} else {
+				hou_s = "0" + hou.ToString();
+			}
 
-			//Debug.Log("game time: " + Gametimer.text);
+			// 轉換分鐘為文字
+			if (min >= 10) {
+				min_s = min.ToString();
+			} else {
+				min_s = "0" + min.ToString();
+			}
+
+			// 轉換秒數為文字
+			if (sec >= 10) {
+				sec_s = sec.ToString();
+			} else {
+				sec_s = "0" + sec.ToString();
+			}
+
+			GameTime.text = hou_s + ":" + min_s + ":" + sec_s;
 		}
 	}
 }

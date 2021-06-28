@@ -7,6 +7,7 @@ TagManager:
   - floor
   - tennis_racket
   - ball
+  - tennis_racket_computer
   layers:
   - Default
   - TransparentFX

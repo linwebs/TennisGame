@@ -12,9 +12,11 @@ public class MainSceneScript : MonoBehaviour {
 	void Update() {
 
 	}
+
 	public void StartGameBtnClick() {
 		SceneManager.LoadSceneAsync(1);
 	}
+
 	public void EndGameBtnClick() {
 		Application.Quit();
 	}

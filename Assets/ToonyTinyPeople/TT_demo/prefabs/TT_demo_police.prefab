@@ -1190,7 +1190,7 @@ PrefabInstance:
     - target: {fileID: 3767201887369893866, guid: a9cb0c0e187ba47469a1a70d372842e2,
         type: 3}
       propertyPath: m_TagString
-      value: tennis_racket
+      value: tennis_racket_computer
       objectReference: {fileID: 0}
     - target: {fileID: 4543035281291169104, guid: a9cb0c0e187ba47469a1a70d372842e2,
         type: 3}
