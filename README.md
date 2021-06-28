@@ -11,3 +11,6 @@
 
 ## HackMD 筆記
 https://hackmd.io/@linwebs-ncyu/tennis-game
+
+## 遊戲企劃書
+遊戲程式設計專題期末報告說明文件.pdf
