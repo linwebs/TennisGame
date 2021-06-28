@@ -53,7 +53,7 @@ public class BallScript : MonoBehaviour {
 		if (Input.GetKey(KeyCode.Space)) {
 			if(playtimes < 2) {
 				// 如果未勝利 才可揮拍
-				StartCoroutine(your_timer());
+				StartCoroutine(kick_ball_timer());
 			}
 		}
 
@@ -68,8 +68,8 @@ public class BallScript : MonoBehaviour {
 		}
 	}
 
-	IEnumerator your_timer() {
-		Debug.Log("Your enter Coroutine at" + Time.time);
+	IEnumerator kick_ball_timer() {
+		// Debug.Log("Your enter Coroutine at" + Time.time);
 		yield return new WaitForSeconds(0.2f);
 		GOGO = true;
 		m_Rigidbody = GetComponent<Rigidbody>();
