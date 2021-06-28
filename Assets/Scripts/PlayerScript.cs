@@ -5,39 +5,39 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 	public Animator anim;
 	float speed;
-	bool kick_ball;
+	bool swing_ball;
 	void Start() {
 		anim = this.GetComponent<Animator>();
 		anim.Play("stand");
 		speed = 3f;
-		kick_ball = false;
+		swing_ball = false;
 	}
 
 	void Update() {
 		// 前
 		if (Input.GetKey(KeyCode.W)) {
-			if (transform.position.z < -1.0f && !kick_ball) {
+			if (transform.position.z < -1.0f && !swing_ball) {
 				transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
 				anim.Play("running");
 			}
 		}
 		// 後
 		if (Input.GetKey(KeyCode.S)) {
-			if (transform.position.z > -12.4f && !kick_ball) {
+			if (transform.position.z > -12.4f && !swing_ball) {
 				transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime), Space.Self);
 				anim.Play("running");
 			}
 		}
 		// 左
 		if (Input.GetKey(KeyCode.A)) {
-			if (transform.position.x > -6.4f && !kick_ball) {
+			if (transform.position.x > -6.4f && !swing_ball) {
 				this.transform.Translate(Vector3.right * -speed * Time.deltaTime);
 				anim.Play("running");
 			}
 		}
 		// 右
 		if (Input.GetKey(KeyCode.D)) {
-			if (transform.position.x < 6.4f && !kick_ball) {
+			if (transform.position.x < 6.4f && !swing_ball) {
 				this.transform.Translate(Vector3.right * speed * Time.deltaTime);
 				anim.Play("running");
 			}
@@ -49,12 +49,12 @@ public class PlayerScript : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.Space)) {
 			anim.Play("swing");
-			kick_ball = true;
-			StartCoroutine(kick_ball_timer());
+			swing_ball = true;
+			StartCoroutine(swing_ball_timer());
 		}
 	}
-	IEnumerator kick_ball_timer() {
+	IEnumerator swing_ball_timer() {
 		yield return new WaitForSeconds(1.0f);
-		kick_ball = false;
+		swing_ball = false;
 	}
 }
