@@ -21,8 +21,8 @@ public class BallScript : MonoBehaviour {
 	private float OutsideLineZ1 = 12.0f;
 	private float OutsideLineZ2 = -12.0f;
 
-	public GameObject tennis1;
-	public GameObject tennis2;
+	//public GameObject tennis1;
+	//public GameObject tennis2;
 	public GameObject player1;
 	public Text GGtext;
 	public Text score1_1;
@@ -91,7 +91,7 @@ public class BallScript : MonoBehaviour {
 		}
 	}
 	void OnCollisionEnter(Collision collision) {
-		Debug.Log("" + collision.gameObject.tag);
+		//Debug.Log("" + collision.gameObject.tag);
 		if (collision.gameObject.tag == "tennis_racket") {
 			touchfloor = 0;
 			if (flag == 0) {
@@ -104,7 +104,7 @@ public class BallScript : MonoBehaviour {
 				flag = 0;
 			}
 			dTime = 0;
-			//Debug.Log("AAA" + dTime);
+			Debug.Log("AAA" + dTime);
 			//GritySpeed = Vector3.zero;
 			RandomZ();
 			MoveSpeed = Quaternion.Euler(new Vector3(Angle, forwardangle, 0)) * Vector3.forward * Power;

@@ -5,28 +5,22 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameSceneScript : MonoBehaviour {
-	public GameObject GameTime;
-	public GameObject BoardTime;
+	public GameObject Menu;
+	public int game_state;
 
 	// 局數
 	int board;
 
-	// 整局計時器
-	float timer_board;
-
-	// 遊戲計時器
-	float timer_game;
-
 	void Start() {
 		Screen.SetResolution(1600, 900, false);
-		timer_board = Time.time;
+		game_state = 1;
 	}
 
 	void Update() {
-		int t_board = Mathf.FloorToInt(timer_board);
 
 	}
 	public void MenuBtnClick() {
-		SceneManager.LoadSceneAsync(2);
+		game_state = 0;
+		Menu.SetActive(true);
 	}
 }

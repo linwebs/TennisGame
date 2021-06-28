@@ -2,58 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class TimeScript : MonoBehaviour
-{
-    public Text Gametimer;
-    //public Text Boardtimer;
+public class TimeScript : MonoBehaviour {
+	public Text Gametimer;
+	public GameObject GameScene;
+	//public Text Boardtimer;
 
-    private float timer_f;
-    private int timer_i;
+	private float timer_f;
+	private int timer_i;
 
-    private int mins;
-    private int secs;
+	private int mins;
+	private int secs;
 
-    private string mins0;
-    private string secs0;
+	private string mins0;
+	private string secs0;
 
-    void Start()
-    {
-        mins = 0;
-        secs = 0;
+	void Start() {
+		mins = 0;
+		secs = 0;
 
-        mins0 = "0";
-        secs0 = "0";
-    }
+		mins0 = "0";
+		secs0 = "0";
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        timer_f = Time.time;
-        timer_i = Mathf.FloorToInt(timer_f);
-        if (timer_i >= 60)
-        {
-            mins = timer_i / 60;
-            secs = timer_i % 60;
+	// Update is called once per frame
+	void Update() {
+		int state = GameScene.GetComponent<GameSceneScript>().game_state;
 
-            if (mins >= 10)
-                mins0 = "";
-            else if(mins < 10)
-                mins0 = "0";
+		if (state == 1) {
+			timer_f = Time.time;
+			timer_i = Mathf.FloorToInt(timer_f);
+			if (timer_i >= 60) {
+				mins = timer_i / 60;
+				secs = timer_i % 60;
 
-            if (secs >= 10)
-                secs0 = "";
-            else if(secs < 10)
-                secs0 = "0";
-        }
-        else
-        {
-            secs = timer_i;
-            if (secs >= 10)
-                secs0 = "";
-            else if (secs < 10)
-                secs0 = "0";
-        }
+				if (mins >= 10)
+					mins0 = "";
+				else if (mins < 10)
+					mins0 = "0";
 
-        Gametimer.text = "00:" + mins0 + mins.ToString() + ":" + secs0 + secs.ToString();
-    }
+				if (secs >= 10)
+					secs0 = "";
+				else if (secs < 10)
+					secs0 = "0";
+			} else {
+				secs = timer_i;
+				if (secs >= 10)
+					secs0 = "";
+				else if (secs < 10)
+					secs0 = "0";
+			}
+
+			Gametimer.text = "00:" + mins0 + mins.ToString() + ":" + secs0 + secs.ToString();
+
+			//Debug.Log("game time: " + Gametimer.text);
+		}
+	}
 }
